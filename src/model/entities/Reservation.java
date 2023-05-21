@@ -40,8 +40,10 @@ public class Reservation {
 	}
 
 	public long duration() {
-		long diff = checkOut.getTime() - checkIn.getTime();
-		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+		// começa calculando a diferença entre as datas em milisegundos
+		long diff = checkOut.getTime() - checkIn.getTime(); //long pois é o inteiro mais longo ja que o cálculo de diferença entre datas retorna um valor desse tipo
+		// converter o valor em milisegundos para dias:
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS); //Time Unit é uma classe especial que contem algumas operações
 	}
 	
 	public void updateDates(Date checkIn, Date checkOut) {
